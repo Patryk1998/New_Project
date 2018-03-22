@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@NamedNativeQuery(
-        name = "Task.findById",
-        query = "SELECT*FROM tasks WHERE id = :id"
-)
-
 @NoArgsConstructor
 @Getter
 @AllArgsConstructor

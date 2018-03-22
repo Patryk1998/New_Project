@@ -7,12 +7,10 @@ import com.crud.tasks.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-
 
 @RestController
 @RequestMapping("/v1/task")
@@ -28,8 +26,8 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public Task getTask(Long id) {
-        return service.getTaskById(id).get();
+    public TaskDto getTask(@RequestParam Long id) {
+        return taskMapper.mapToTaskDto(service.getTaskByIdd(id).orElse(new Task((long) 2312, "!!!!!!!", "!!!!!!")));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
