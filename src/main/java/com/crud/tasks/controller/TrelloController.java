@@ -22,8 +22,8 @@ public class TrelloController {
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards().orElseThrow(TaskNotFoundException::new);
 
         trelloBoards.stream()
-                .filter(trelloBoardsDto -> trelloBoardsDto.getName().contains("Kodilla") && trelloBoardsDto.getName().contains("")
-                && trelloBoardsDto.getId().contains(""))
+                .filter(trelloBoardDto -> trelloBoardDto.getName() != null && trelloBoardDto.getId() != null)
+                .filter(trelloBoardDto -> trelloBoardDto.getName().contains("Kodilla"))
                 .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 
     }
