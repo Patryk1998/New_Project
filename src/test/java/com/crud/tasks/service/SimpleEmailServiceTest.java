@@ -26,7 +26,7 @@ public class SimpleEmailServiceTest {
     @Test
     public void shouldSentEmail() {
         //Given
-        Mail mail = new Mail("test@test.com", "Test", "Test");
+        Mail mail = new Mail("test@test.com", "Test", "Test", null);
         SimpleMailMessage simpleMailMessage = simpleEmailService.createMailMessage(mail);
 
         //When
