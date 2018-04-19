@@ -62,7 +62,7 @@ public class TrelloClient {
                 .queryParam("idList", trelloCardDto.getListId()).build().encode().toUri();
 
 //        http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id
-        http://test.com/cards?key=test&token=test&name=Test%20Task&desc=Test%20Description&pos=top&idList=test_id
+//        http://test.com/cards?key=test&token=test&name=Test%20Task&desc=Test%20Description&pos=top&idList=test_id
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
     }
 }
