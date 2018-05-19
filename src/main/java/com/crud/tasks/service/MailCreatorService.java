@@ -49,4 +49,12 @@ public class MailCreatorService {
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
 
+    public String buildTaskQuantityMail(Long quantity) {
+        Context context = new Context();
+        context.setVariable("quantity", quantity);
+        context.setVariable("title", "Mail with information about your tasks sending once a day");
+        context.setVariable("zeroTask", "You have no task for today!");
+        context.setVariable("oneTask", "You have only one task for today!");
+        return templateEngine.process("mail/one-day-mail", context);
+    }
 }
